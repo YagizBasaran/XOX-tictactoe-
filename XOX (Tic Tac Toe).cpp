@@ -21,18 +21,21 @@ int main() {
 		if(player1 == "x"){
 			player2 = "o";
 		}
-		else{
-
+		else if(player1 == "o"){
 			player2 = "x";
-			player1 = "o";
+		}
+		else{
+			cout << "Did not choose the right character. Restart again." << endl;
+			return 0;
 		}
 
-		int gameOn = -1;
 		cout << "Welcome to the game! \n" << endl;
 
 		Board bd;
 		bd.setBoard();
 		bd.printBoard();
+
+		int gameOn = -1;
 
 		int count = 0; bool canPlay;
 		while(gameOn == -1){
@@ -105,8 +108,11 @@ int main() {
 		}
 
 		if(gameOn == 0) cout << "Draw, unlucky." << endl;
-		else if(gameOn == 1) cout << "Player 1 wins, congrats!" << endl;
-		else if(gameOn == 2) cout << "Player 2 wins, congrats!" << endl;
+		else if(gameOn == 1 && player1 == "x") cout << "Player 1 wins, congrats!" << endl;
+		else if(gameOn == 1 && player2 == "x") cout << "Player 2 wins, congrats!" << endl;
+		else if(gameOn == 2 && player2 == "o") cout << "Player 2 wins, congrats!" << endl;
+		else if(gameOn == 2 && player1 == "o") cout << "Player 1 wins, congrats!" << endl;
+		else cout << "Bye Bye" << endl;
 
 	}
 	else
