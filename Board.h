@@ -17,7 +17,7 @@ public:
 	void setBoard();
 	int didWin(int count);
 
-	string board[3][3];
+	string board[3][3]; //fixed
 
 };
 
